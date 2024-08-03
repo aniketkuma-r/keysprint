@@ -42,6 +42,8 @@ export class Game {
 
       for (const player of this.players) {
         player.score = 0;
+        player.speed = 0;
+        player.accuracy = 100;
       }
 
       this.io.to(this.gameId).emit("players", this.players);
@@ -56,17 +58,18 @@ export class Game {
 
       setTimeout(() => {
         this.gameStatus = "finished";
-        this.io.to(this.gameId).emit("game-finished", this.players);
+        this.io.to(this.gameId).emit("game-finished");
+        this.io.to(this.gameId).emit("players", this.players);
       }, 60000);
     });
 
-    socket.on("player-typed", (words: string) => {
+    socket.on("player-typed", (inputParagraph: string) => {
       if (this.gameStatus !== "in-progress")
         return socket.emit("error", "Game is not in progress!");
 
-			const score = getScore(words, this.paragraph);
-			const accuracy = getAccuracy(score, words);
-			const speed = getSpeed(this.startTime, words);
+			const score = getScore(inputParagraph, this.paragraph);
+			const accuracy = getAccuracy(score, inputParagraph);
+			const speed = getSpeed(this.startTime, inputParagraph);
       
       this.players.forEach((player) => {
         if (player.id === socket.id) {
