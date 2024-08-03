@@ -24,7 +24,7 @@ export class Game {
     this.gameStatus = "not-started";
     this.players = [];
     this.gameHost = host;
-    this.startTime = Date.now();
+    this.startTime = 0;
     this.paragraph = "";
     this.io = io;
   }
@@ -46,9 +46,11 @@ export class Game {
 
       this.io.to(this.gameId).emit("players", this.players);
 
-      this.gameStatus = "in-progress";
-
       this.paragraph = await generateParagraph();
+      
+      this.startTime = Date.now();
+
+      this.gameStatus = "in-progress";
 
       this.io.to(this.gameId).emit("game-started", this.paragraph);
 
