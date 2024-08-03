@@ -1,4 +1,22 @@
-const string = "void solve() {	string s; cin>>s;	int n =s.length();	string temp = s;	reverse(temp.begin(), temp.end());	if(s!=temp) {		cout<<0<<endl;		return;	}	int mini = 1;	for(int i=1;i<n;i++){		if(s[i]!=s[0]) {			cout<<1<<endl;		return;		}	}	cout<<n<<endl;}";
+const string = `import { createServer } from "http";
+import { Server } from "socket.io";
+import { setupListeners } from "./setupListeners";
+
+const PORT = process.env.PORT || 8000;
+const httpServer = createServer();
+
+const io = new Server(httpServer, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
+
+setupListeners(io);
+
+httpServer.listen(PORT, () => {
+  console.log(\`Server is running on port \${PORT}\`);
+});`;
 
 export function generateLocalParagraph() {
     return string
