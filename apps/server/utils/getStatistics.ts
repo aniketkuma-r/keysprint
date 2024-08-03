@@ -1,5 +1,5 @@
-export function getSpeed(startTime: number, words: string) {
-  const numCharsTyped = words.split("").length;
+export function getSpeed(startTime: number, inputParagraph: string) {
+  const numCharsTyped = inputParagraph.split("").length;
 
   // Calculate the time elapsed in minutes
   const timeElapsedMinutes = (Date.now() - startTime) / 1000 / 60;
@@ -11,13 +11,13 @@ export function getSpeed(startTime: number, words: string) {
   return wpm;
 }
 
-export function getAccuracy(score: number, words: string) {
-  const numCharsTyped = words.split("").length;
+export function getAccuracy(score: number, inputParagraph: string) {
+  const numCharsTyped = inputParagraph.split("").length;
   return (score / numCharsTyped) * 100;
 }
 
-export function getScore(words: string, paragraph: string) {
-  const characterTyped = words.split("");
+export function getScore(inputParagraph: string, paragraph: string) {
+  const characterTyped = inputParagraph.split("");
   const characterParagraph = paragraph.split("");
 
   let score = 0;

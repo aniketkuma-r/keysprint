@@ -19,19 +19,19 @@ httpServer.listen(PORT, () => {
 });`;
 
 export function generateLocalParagraph() {
-    return string
+  return string;
 }
 
 export async function generateParagraph() {
-    try {
-        const response = await fetch("http://metaphorpsum.com/paragraphs/2/4");
-        if (!response.ok) {
-            throw new Error("Failed to fetch data");
-        }
-        const data = response.text();
-        return data;
-    } catch (error) {
-        console.log(error);
-        return generateLocalParagraph();
+  try {
+    const response = await fetch("http://metaphorpsum.com/paragraphs/3/4");
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
     }
+    const data = response.text();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return generateLocalParagraph();
+  }
 }
