@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "apps/server/dist/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["apps/server/dist/**"] }
+    },
+    {
+      "src": "apps/web/next.config.mjs",
+      "use": "@vercel/next",
+      "config": { "includeFiles": ["apps/web/**"] }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "apps/server/dist/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "apps/web/$1"
+    }
+  ]
+}
