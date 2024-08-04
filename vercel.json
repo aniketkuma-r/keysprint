@@ -7,7 +7,7 @@
       "config": { "includeFiles": ["apps/server/dist/**"] }
     },
     {
-      "src": "apps/web/next.config.mjs",
+      "src": "apps/web/next.config.js",
       "use": "@vercel/next",
       "config": { "includeFiles": ["apps/web/**"] }
     }
