@@ -37,7 +37,7 @@ export default function Game({ gameId, name }: GameProps) {
       removeListeners();
       _socket.disconnect();
     };
-  }, []);
+  });
 
   useEffect(() => {
     setUpListeners();

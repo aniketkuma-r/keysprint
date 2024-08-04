@@ -17,7 +17,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
-export default function createRoom() {
+export default function CreateGame() {
   const router = useRouter();
 
   function createGame(e: FormEvent<HTMLFormElement>) {
@@ -40,10 +40,7 @@ export default function createRoom() {
             </span>
           </h2>
           <p className="m-0  text-sm opacity-50">
-            Create a game and invite your friends to join to you and race you to
-            a typing sprint! you'll recieve a invite code once you create a
-            game. You will be Host of the game and will be able to start the
-            game.
+            {`Create a game and invite your friends to join to you and race you to a typing sprint! you'll recieve a invite code once you create a game. You will be Host of the game and will be able to start the game.`}
           </p>
         </div>
       </DialogTrigger>
