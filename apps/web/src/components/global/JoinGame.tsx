@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
-export default function createRoom() {
+export default function JoinRoom() {
   const router = useRouter();
 
   function joinGame(e: FormEvent<HTMLFormElement>) {
