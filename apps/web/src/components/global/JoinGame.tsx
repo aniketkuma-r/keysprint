@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 
-export default function JoinRoom() {
+export default function JoinGame() {
   const router = useRouter();
 
   function joinGame(e: FormEvent<HTMLFormElement>) {
@@ -38,7 +38,8 @@ export default function JoinRoom() {
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Enter the invite code to join a game. Let the best one to win the typing race!
+            Enter the invite code to join a game. Let the best one to win the
+            typing race!
           </p>
         </div>
       </DialogTrigger>
@@ -47,7 +48,8 @@ export default function JoinRoom() {
           <DialogHeader>
             <DialogTitle>Join Game</DialogTitle>
             <DialogDescription>
-              Enter your nick name and a valid Invite Code here and Enjoy!. This name will be visible to all members in the Lobby.
+              Enter your nick name and a valid Invite Code here and Enjoy!. This
+              name will be visible to all members in the Lobby.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
@@ -55,12 +57,7 @@ export default function JoinRoom() {
               <Label htmlFor="name" className="text-right">
                 Name
               </Label>
-              <Input
-                id="name"
-                name="name"
-                className="col-span-3"
-                required
-              />
+              <Input id="name" name="name" className="col-span-3" required />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="inviteCode" className="text-right">
